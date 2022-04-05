@@ -8,6 +8,9 @@ namespace GenericModConfigMenu.Framework
         /*********
         ** Accessors
         *********/
+        /// <summary>The theme to use for drawing the menu.</summary>
+        public string Theme { get; set; } = "automatic";
+
         /// <summary>A keybind which opens the menu.</summary>
         public KeybindList OpenMenuKey = new KeybindList(StardewModdingAPI.SButton.None);
 

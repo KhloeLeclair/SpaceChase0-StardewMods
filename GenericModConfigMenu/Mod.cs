@@ -1,7 +1,9 @@
+using System.Linq;
 using GenericModConfigMenu.Framework;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Leclair.Stardew.ThemeManager;
 using SpaceShared;
 using SpaceShared.UI;
 using StardewModdingAPI;
@@ -26,6 +28,8 @@ namespace GenericModConfigMenu
         /// <summary>The mod API, if initialized.</summary>
         private Api Api;
 
+        /// <summary>Manages loading themed assets.</summary>
+        private ThemeManager<BaseThemeData> ThemeManager;
 
         /*********
         ** Accessors
@@ -59,6 +63,9 @@ namespace GenericModConfigMenu
             I18n.Init(helper.Translation);
             Log.Monitor = this.Monitor;
             this.Config = helper.ReadConfig<OwnModConfig>();
+
+            this.ThemeManager = new(this, this.Config.Theme);
+            this.ThemeManager.Discover();
 
             this.SetupTitleMenuButton();
 
@@ -110,7 +117,7 @@ namespace GenericModConfigMenu
         {
             this.Ui = new RootElement();
 
-            Texture2D tex = this.Helper.ModContent.Load<Texture2D>("assets/config-button.png");
+            Texture2D tex = this.ThemeManager.Load<Texture2D>("config-button.png");
             this.ConfigButton = new Button(tex)
             {
                 LocalPosition = new Vector2(36, Game1.viewport.Height - 100),

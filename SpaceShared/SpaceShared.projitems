@@ -35,6 +35,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)ModDataHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)PositionAnchor.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SpaceUtility.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ThemeManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)UI\Button.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)UI\Checkbox.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)UI\Container.cs" />
